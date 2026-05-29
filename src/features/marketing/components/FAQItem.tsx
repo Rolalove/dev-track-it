@@ -14,7 +14,7 @@ export const FAQItem = ({
   onToggle,
 }: FAQItemProps) => {
   return (
-    <div className="flex flex-col rounded-xl gap-4.5  p-4.5 border-marketing-border border bg-marketing-card">
+    <div className="flex flex-col rounded-xl gap-4.5  p-4.5 border-marketing-primary border bg-marketing-card">
       <button onClick={onToggle} className="flex justify-between">
         <h3 className="font-semibold text-start text-xl text-marketing-muted">
           {question}

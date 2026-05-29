@@ -39,7 +39,7 @@ export const FAQList = () => {
   };
 
   return (
-    <section>
+    <section id="faqs">
       <div className="space-y-4 mb-8">
         <h2 className="text-3xl text-foreground text-center font-semibold">
           Let&apos;s Get You Clear

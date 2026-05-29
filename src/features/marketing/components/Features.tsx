@@ -28,7 +28,7 @@ const Features = () => {
   const feat3 = features.find((f) => f.id === 3)!;
 
   return (
-    <section className="space-y-10">
+    <section id="features" className="space-y-10">
       <div className="space-y-3 text-center">
         <h2 className="text-3xl font-semibold text-foreground">
           Why Tech Pros Use DevTrackIt
@@ -47,7 +47,7 @@ const Features = () => {
             .map((feat) => (
               <div
                 key={feat.id}
-                className="flex flex-col justify-between p-6 bg-marketing-card border border-marketing-border rounded-2xl flex-1 min-h-45"
+                className="flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl flex-1 min-h-45"
               >
                 {/* Text top-center */}
                 <div className="text-center space-y-2">
@@ -72,7 +72,7 @@ const Features = () => {
             ))}
         </div>
         {/* Column 2: Feature 3 spanning full height */}
-        <div className="relative overflow-hidden flex flex-col justify-between p-6 bg-marketing-card border border-marketing-border rounded-2xl min-h-95">
+        <div className="relative overflow-hidden flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl min-h-95">
           {/* Text top-center */}
           <div className="text-center space-y-2 z-10">
             <h3 className="text-base font-bold uppercase tracking-wide text-foreground">
