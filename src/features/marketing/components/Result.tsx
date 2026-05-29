@@ -16,14 +16,14 @@ const Result = () => {
           you&apos;re prepared.
         </p>
         <Link
-          className="bg-marketing-border text-base text-white font-medium rounded-xl px-6 py-3 "
-          href=""
+          className="bg-marketing-primary text-base text-white font-medium rounded-xl px-6 py-3 "
+          href="/signup"
         >
           Start Your Journey
         </Link>
       </div>
 
-      <div className="py-10 pl-10 bg-marketing-card border border-marketing-border rounded-xl">
+      <div className="py-10 pl-10 bg-marketing-card border border-marketing-primary rounded-xl">
         <div className="bg-white py-5 flex flex-col justify-center items-center rounded-tl-2xl rounded-bl-2xl px-6 gap-3 text-center">
           <Image
             src="/assets/marketing/celebration.svg"
@@ -39,7 +39,7 @@ const Result = () => {
             All your effort tracking, prepping, and applying paid off. Congrats
             on your new role. We&apos;re proud to have been part of the journey.
           </p>
-          <p className="text-base font-medium text-marketing-border cursor-pointer">
+          <p className="text-base font-medium text-marketing-primary cursor-pointer">
             Back to Dashboard
           </p>
         </div>

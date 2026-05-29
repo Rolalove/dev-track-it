@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-marketing-background: var(--marketing-background);
-  --color-marketing-border: var(--marketing-border);
+  --color-marketing-primary: var(--marketing-primary);
   --color-marketing-card: var(--marketing-card);
   --color-marketing-muted: var(--marketing-muted);
   --color-foreground: var(--foreground);
@@ -54,7 +54,7 @@
 :root {
   --background: oklch(0.9702 0 0);
   --marketing-background: oklch(0.979319 0.010251 247.9308);
-  --marketing-border: oklch(0.632 0.1608 252.02);
+  --marketing-primary: oklch(0.632 0.1608 252.02);
   --marketing-card: oklch(0.632 0.1608 252.02 / 20%);
   --marketing-muted: oklch(0.2058 0.0016 17.29);
   --foreground: oklch(0 0 0);
