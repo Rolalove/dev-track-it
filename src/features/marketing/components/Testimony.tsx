@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 const testimonies = [
   {
@@ -11,23 +12,7 @@ const testimonies = [
     role: "Frontend Engineer",
     image: "/assets/marketing/IMG_3255.JPG",
     description:
-      "Before DevTrackIt, I had no idea how to prep for data-focused interviews. The generated questions and prep materials were on-point. I walked into my final round feeling fully prepared, and I got the job!",
-  },
-  {
-    id: 2,
-    name: "Michael B.",
-    role: "Backend Developer",
-    image: "/assets/marketing/interview.png",
-    description:
-      "The application tracking feature is a lifesaver. I can see all my applications in one place and never miss a deadline.",
-  },
-  {
-    id: 3,
-    name: "Emily R.",
-    role: "Data Scientist",
-    image: "/assets/marketing/emily.png",
-    description:
-      "DevTrackIt helped me prepare for my interviews and land my dream role at Microsoft. The interview prep feature was a game-changer!",
+      "Before DevTrackIt, prepping for technical rounds always felt unguided and overwhelming. The generated questions and structure were completely spot-on. I walked into my final interview rounds feeling fully prepared, and I got the job!",
   },
 ];
 
@@ -47,17 +32,13 @@ const Testimony = () => {
   return (
     <section id="stories" className="space-y-12 py-6">
       {/* Header */}
-      <div className="space-y-3 text-center">
-        <h3 className="text-3xl font-semibold text-foreground">
-          Real Stories, Real Wins
-        </h3>
-        <p className="max-w-2xl mx-auto text-foreground font-medium text-lg md:text-xl">
-          See how others used DevTrackIt to land roles at leading companies.
-        </p>
-      </div>
+      <SectionHeader
+        title="Real Stories, Real Wins"
+        subtitle="See how others used DevTrackIt to land roles at leading companies."
+      />
 
       {/* Slider Container */}
-      <div className="relative max-w-6xl mx-auto px-4">
+      <div className="relative  mx-auto px-4">
         {/* Main Card */}
         <div
           className="relative w-full"
@@ -81,15 +62,15 @@ const Testimony = () => {
 
             {/* Quote and Profile Details */}
             <div className="flex flex-col justify-between h-full space-y-6 text-left">
-              <p className="text-base md:text-lg text-neutral-800 font-medium leading-relaxed">
+              <p className="text-base md:text-lg text-marketing-muted font-medium leading-relaxed">
                 {active.description}
               </p>
 
-              <div className="space-y-1">
-                <h4 className="text-xl font-bold text-neutral-900">
+              <div className="space-y-6">
+                <p className="text-xl font-medium text-marketing-muted">
                   {active.name}
-                </h4>
-                <p className="text-sm text-neutral-700 font-semibold">
+                </p>
+                <p className="text-xl font-medium text-marketing-muted">
                   {active.role}
                 </p>
               </div>

@@ -8,25 +8,21 @@ import {
   Headset,
   ArrowRight,
 } from "lucide-react";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 const Tools = () => {
   return (
     <section id="tools" className="space-y-12">
-      <div className="space-y-3 text-center">
-        <h2 className="text-3xl font-semibold text-foreground">
-          Designed for Every Techie
-        </h2>
-        <p className="max-w-2xl mx-auto text-foreground/80 font-medium text-lg md:text-xl">
-          Whether you&apos;re coding, creating, analyzing, or managing,
-          DevTrackIt adapts to your unique journey.
-        </p>
-      </div>
+      <SectionHeader
+        title="Designed for Every Techie"
+        subtitle="Whether you're coding, creating, analyzing, or managing, DevTrackIt adapts to your unique journey."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
         {/* Column 1 */}
         <div className="flex flex-col gap-8">
           {/* Card 1: Build, ship, and scale with confidence (Lavender) */}
-          <div className="group relative flex flex-col justify-between px-2 pt-8 bg-[#9747FF33] border border-[#9747FF] rounded-3xl min-h-[460px] overflow-hidden">
+          <div className="group relative flex flex-col justify-between px-2 pt-8 bg-[#9747FF33] border border-[#9747FF] rounded-3xl min-h-115 overflow-hidden">
             <div className="space-y-4 text-center ">
               <h3 className="text-xl font-bold uppercase tracking-wider text-[#1E1A4B]">
                 Build, ship, and scale with confidence

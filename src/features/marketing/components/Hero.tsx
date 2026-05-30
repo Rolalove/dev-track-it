@@ -1,13 +1,16 @@
 "use client";
-import Snowfall from "react-snowfall";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Play } from "lucide-react";
 import Link from "next/link";
-import Navbar from "./Navbar";
+
+const Snowfall = dynamic(() => import("react-snowfall"), {
+  ssr: false,
+});
 
 const Hero = () => {
   return (
-    <section className="relative w-full flex flex-col justify-between items-center z-10 ">
+    <section className="relative w-full flex flex-col justify-between items-center z-10 mt-[-96px] pt-[96px]">
       {/* Background & Ray wrapper clipped to 100vh */}
       <div
         className="absolute inset-0 w-full h-full overflow-hidden z-0"
@@ -26,8 +29,6 @@ const Hero = () => {
         {/* Snowfall background */}
         <Snowfall color="white" style={{ opacity: 0.6 }} />
       </div>
-
-      <Navbar />
 
       {/* Hero Main content */}
       <div className="relative z-10  max-w-4xl mx-auto flex flex-col items-center gap-5 text-center px-6 mt-8 md:mt-24">
