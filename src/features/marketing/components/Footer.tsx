@@ -32,7 +32,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full max-w-6xl mx-auto px-6 pt-12 pb-16 md:px-12">
+    <footer className="w-full max-w-7xl mx-auto px-6 pt-12 pb-16 md:px-12">
       <div
         className="flex items-center justify-center mb-10 opacity-15 select-none pointer-events-none"
         style={{

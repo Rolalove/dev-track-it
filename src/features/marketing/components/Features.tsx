@@ -1,4 +1,8 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 const features = [
   {
@@ -26,18 +30,33 @@ const features = [
 
 const Features = () => {
   const feat3 = features.find((f) => f.id === 3)!;
+  const [activeState, setActiveState] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveState((prev) => (prev + 1) % 3);
+    }, 3000); // Cycle every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  const getCard1And2Classes = (state: number) => {
+    if (state === 0) return "scale-100 translate-x-0 translate-y-0";
+    if (state === 1) return "scale-[1.35] translate-x-0 translate-y-6";
+    return "scale-x-[-1.35] scale-y-[1.35] translate-x-0 translate-y-6";
+  };
+
+  const getCard3Classes = (state: number) => {
+    if (state === 0) return "scale-100 translate-x-0 translate-y-0";
+    if (state === 1) return "scale-[1.25] translate-x-0 translate-y-8";
+    return "scale-x-[-1.25] scale-y-[1.25] translate-x-0 translate-y-8";
+  };
 
   return (
     <section id="features" className="space-y-10">
-      <div className="space-y-3 text-center">
-        <h2 className="text-3xl font-semibold text-foreground">
-          Why Tech Pros Use DevTrackIt
-        </h2>
-        <p className="max-w-2xl mx-auto text-foreground font-medium text-xl">
-          No more spreadsheets or scattered bookmarks, DevTrackIt adapts to your
-          goals and helps you land your next role faster.
-        </p>
-      </div>
+      <SectionHeader
+        title="Why Tech Pros Use DevTrackIt"
+        subtitle="No more spreadsheets or scattered bookmarks, DevTrackIt adapts to your goals and helps you land your next role faster."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         {/* Column 1: Feature 1 & 2 stacked */}
@@ -47,49 +66,49 @@ const Features = () => {
             .map((feat) => (
               <div
                 key={feat.id}
-                className="flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl flex-1 min-h-45"
+                className="group flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl flex-1 min-h-45 relative overflow-hidden"
               >
                 {/* Text top-center */}
-                <div className="text-center space-y-2">
-                  <h3 className="text-base font-bold uppercase tracking-wide text-foreground">
+                <div className="text-center space-y-2 z-10">
+                  <h3 className="text-2xl font-semibold text-marketing-muted">
                     {feat.title}
                   </h3>
-                  <p className="text-sm text-foreground/80 font-medium leading-relaxed max-w-xs mx-auto">
+                  <p className="text-xl text-marketing-muted font-medium leading-relaxed max-w-md mx-auto">
                     {feat.description}
                   </p>
                 </div>
                 {/* Image centered bottom */}
-                <div className="flex justify-center items-end">
+                <div className="flex justify-center items-end mt-4">
                   <Image
                     src={feat.image}
                     alt={feat.title}
                     width={100}
                     height={100}
-                    className="object-contain"
+                    className={`object-contain transition-all duration-1000 ease-in-out transform ${getCard1And2Classes(activeState)}`}
                   />
                 </div>
               </div>
             ))}
         </div>
         {/* Column 2: Feature 3 spanning full height */}
-        <div className="relative overflow-hidden flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl min-h-95">
+        <div className="group relative overflow-hidden flex flex-col justify-between p-6 bg-marketing-card border border-marketing-primary rounded-2xl min-h-95">
           {/* Text top-center */}
           <div className="text-center space-y-2 z-10">
-            <h3 className="text-base font-bold uppercase tracking-wide text-foreground">
+            <h3 className="text-2xl font-semibold text-marketing-muted">
               {feat3.title}
             </h3>
-            <p className="text-sm text-foreground/80 font-medium max-w-xs mx-auto leading-relaxed">
+            <p className="text-xl text-marketing-muted font-medium leading-relaxed max-w-md mx-auto">
               {feat3.description}
             </p>
           </div>
           {/* Image large, centered bottom */}
-          <div className="flex justify-center items-end">
+          <div className="flex justify-center items-end mt-6">
             <Image
               src={feat3.image}
               alt={feat3.title}
-              width={280}
-              height={280}
-              className="object-contain"
+              width={380}
+              height={380}
+              className={`object-contain transition-all duration-1000 ease-in-out transform ${getCard3Classes(activeState)}`}
             />
           </div>
         </div>

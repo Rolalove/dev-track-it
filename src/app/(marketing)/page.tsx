@@ -5,12 +5,14 @@ import Result from "@/features/marketing/components/Result";
 import Tools from "@/features/marketing/components/Tools";
 import Testimony from "@/features/marketing/components/Testimony";
 import Hero from "@/features/marketing/components/Hero";
+import Navbar from "@/features/marketing/components/Navbar";
 
 const MarketingPage = () => {
   return (
     <main className="w-full min-h-screen">
+      <Navbar />
       <Hero />
-      <div className="px-6 pt-50 pb-12 sm:pt-62.5 md:px-10 md:pt-82.5 lg:pt-90 space-y-32 max-w-6xl mx-auto">
+      <div className="px-6 pt-50 pb-12 sm:pt-62.5 md:px-10 md:pt-82.5 lg:pt-90 space-y-32 max-w-7xl mx-auto">
         <Features />
         <Tools />
         <Testimony />
