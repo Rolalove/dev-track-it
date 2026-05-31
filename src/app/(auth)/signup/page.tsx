@@ -134,7 +134,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Right Column: Dynamic Onboarding Steps */}
-      <div className="flex items-center justify-center p-8 bg-background min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto">
+      <div className="flex items-center justify-center p-8 bg-white min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto">
         {renderStep()}
       </div>
     </div>

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { ArrowLeft, X } from "lucide-react";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 interface OnboardingTwoProps {
   onNext: (data: Record<string, unknown>) => void;
@@ -16,23 +17,9 @@ export const OnboardingTwo = ({ onNext, onBack }: OnboardingTwoProps) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      techTrack: "Software Developer",
-      currentGoal: "Track applications better",
-    },
-  });
+  } = useForm();
 
-  const [tags, setTags] = useState<string[]>([
-    "JavaScript",
-    "Python",
-    "C++",
-    "TypeScript",
-    "HTML",
-    "CSS",
-    "React",
-    "Node.js",
-  ]);
+  const [tags, setTags] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -70,14 +57,11 @@ export const OnboardingTwo = ({ onNext, onBack }: OnboardingTwoProps) => {
         Back
       </button>
 
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight text-[#111827]">
-          What&apos;s your focus in tech?
-        </h2>
-        <p className="text-sm text-gray-500 font-medium leading-relaxed">
-          Choose your role, skills, and tools to personalize your experience.
-        </p>
-      </div>
+      <SectionHeader
+        title="What's your focus in tech?"
+        subtitle="Choose your role, skills, and tools to personalize your experience."
+        className="!text-left"
+      />
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Tech Track / Role Input */}
@@ -86,7 +70,7 @@ export const OnboardingTwo = ({ onNext, onBack }: OnboardingTwoProps) => {
             type="text"
             placeholder="Enter your Tech Track"
             {...register("techTrack", { required: "Tech track is required" })}
-            className="py-5 border-marketing-muted placeholder:text-marketing-muted text-foreground"
+            className="py-6 border-marketing-muted placeholder:text-marketing-muted text-foreground"
           />
           {errors.techTrack && (
             <p className="text-xs text-red-500">
@@ -124,7 +108,7 @@ export const OnboardingTwo = ({ onNext, onBack }: OnboardingTwoProps) => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="py-5 border-marketing-muted placeholder:text-marketing-muted text-foreground"
+            className="py-5.5 border-marketing-muted placeholder:text-marketing-muted text-foreground"
           />
           <p className="text-[10px] text-gray-400 font-semibold px-0.5">
             Press Enter to add skills as tags
@@ -134,25 +118,33 @@ export const OnboardingTwo = ({ onNext, onBack }: OnboardingTwoProps) => {
         {/* Goals Dropdown */}
         <div className="space-y-1.5">
           <select
-            {...register("currentGoal")}
-            className="w-full p-3.5 border border-marketing-muted rounded-xl bg-card text-foreground text-sm font-semibold focus:border-marketing-primary focus:ring-2 focus:ring-marketing-primary/10 outline-none transition-all"
+            {...register("currentGoal", { required: "Please select a goal" })}
+            defaultValue=""
+            className="w-full py-3.5 px-2.5 border border-marketing-muted rounded-xl bg-card text-foreground text-sm font-semibold focus:border-marketing-primary focus:ring-2 focus:ring-marketing-primary/10 outline-none transition-all"
           >
-            <option value="Track applications better">
-              Track applications better
+            <option value="" disabled>
+              Select your current goal
             </option>
-            <option value="Prepare for interviews">
-              Prepare for interviews
+            <option value="Active Job Hunting">Active Job Hunting</option>
+            <option value="Open to Opportunities">Open to Opportunities</option>
+            <option value="Tracking Internal Growth & Wins">
+              Tracking Internal Growth & Wins
             </option>
-            <option value="Optimize schedule sync">
-              Optimize schedule sync
+            <option value="Monitoring My Market Value">
+              Monitoring My Market Value
             </option>
           </select>
+          {errors.currentGoal && (
+            <p className="text-xs text-red-500">
+              {errors.currentGoal.message as string}
+            </p>
+          )}
         </div>
 
         {/* Submit Button */}
         <Button
           type="submit"
-          className="w-full py-5 bg-marketing-primary text-card rounded-xl font-semibold transition-all shadow-md hover:bg-marketing-primary/95 mt-2"
+          className="w-full py-5.5 bg-marketing-primary text-card rounded-xl font-semibold transition-all shadow-md hover:bg-marketing-primary mt-2"
         >
           Continue
         </Button>

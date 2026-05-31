@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Upload, Check } from "lucide-react";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 
 interface OnboardingThreeProps {
   onNext: (data: Record<string, unknown>) => void;
@@ -48,21 +49,18 @@ export const OnboardingThree = ({ onNext, onBack }: OnboardingThreeProps) => {
         Back
       </button>
 
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight text-[#111827]">
-          Get set to track smarter
-        </h2>
-        <p className="text-sm text-gray-500 font-medium leading-relaxed">
-          Connect tools to unlock tailored prep, reminders, and insights.
-        </p>
-      </div>
+      <SectionHeader
+        title="Get set to track smarter"
+        subtitle="Connect tools to unlock tailored prep, reminders, and insights."
+        className="!text-left"
+      />
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Sync Calendar Button */}
-        <button
+        <Button
           type="button"
           onClick={handleCalendarClick}
-          className={`flex items-center justify-between w-full p-4 border rounded-xl bg-card text-left transition-all ${
+          className={`flex items-center justify-between w-full py-5.5 px-2.5 border rounded-xl bg-card text-left transition-all ${
             calendarSynced
               ? "border-green-500 text-green-700 bg-green-50/20"
               : "border-marketing-muted text-marketing-muted hover:border-marketing-primary"
@@ -78,13 +76,13 @@ export const OnboardingThree = ({ onNext, onBack }: OnboardingThreeProps) => {
           ) : (
             <Calendar className="w-4 h-4 text-marketing-muted" />
           )}
-        </button>
+        </Button>
 
         {/* Upload Resume Button */}
-        <button
+        <Button
           type="button"
           onClick={handleUploadClick}
-          className={`flex items-center justify-between w-full p-4 border rounded-xl bg-card text-left transition-all ${
+          className={`flex items-center justify-between w-full py-5.5 px-2.5 border rounded-xl bg-card text-left transition-all ${
             resumeName
               ? "border-green-500 text-green-700 bg-green-50/20"
               : "border-marketing-muted text-marketing-muted hover:border-marketing-primary"
@@ -98,7 +96,7 @@ export const OnboardingThree = ({ onNext, onBack }: OnboardingThreeProps) => {
           ) : (
             <Upload className="w-4 h-4 text-marketing-muted" />
           )}
-        </button>
+        </Button>
 
         {/* Hidden File Input */}
         <input
@@ -106,25 +104,25 @@ export const OnboardingThree = ({ onNext, onBack }: OnboardingThreeProps) => {
           ref={fileInputRef}
           onChange={handleFileChange}
           accept=".pdf,.doc,.docx"
-          className="hidden"
+          className="hidden "
         />
 
         {/* Finish Setup Button */}
         <Button
           type="submit"
-          className="w-full py-5 bg-marketing-primary text-card rounded-xl font-semibold transition-all shadow-md hover:bg-marketing-primary/95 mt-4"
+          className="w-full py-5.5 bg-marketing-primary text-card rounded-xl font-semibold transition-all shadow-md hover:bg-marketing-primary/95 mt-4"
         >
           Finish Setup
         </Button>
 
         {/* Skip for Now Button */}
-        <button
+        <Button
           type="button"
           onClick={() => onNext({ skipped: true })}
-          className="w-full py-3.5 bg-transparent border border-marketing-primary text-marketing-primary hover:bg-marketing-primary/5 rounded-xl font-semibold transition-all text-sm"
+          className="w-full py-5.5 px-2.5 bg-transparent border border-marketing-primary text-marketing-primary hover:bg-marketing-primary/5 rounded-xl font-semibold transition-all text-sm"
         >
           Skip for Now
-        </button>
+        </Button>
       </form>
     </div>
   );
